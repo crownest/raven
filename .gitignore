@@ -152,5 +152,12 @@ ENV/
 # mkdocs documentation
 /site
 
+.sass-cache
+.vscode
+
+node_modules
+bower_components
+dist
+
 # End of https://www.gitignore.io/api/osx,linux,python,django
 
