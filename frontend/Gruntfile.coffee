@@ -7,7 +7,7 @@ module.exports = (grunt)->
       default_options:
         bsFiles:
           src: [
-            "css/*.css"
+            "static/css/*.css"
             "*.html"
           ]
         options:
@@ -19,7 +19,7 @@ module.exports = (grunt)->
       dist:
         files:
           # destination         // source file
-          "css/main.css" : "sass/main.scss"
+          "static/css/main.css" : "static/sass/main.scss"
         options:
           style: 'compressed'
           # loadPath: require('node-bourbon').with('other/path', 'another/path')
@@ -28,10 +28,10 @@ module.exports = (grunt)->
           # loadPath: require('node-neat').includePaths
     watch:
       sass:
-        files: "sass/*.scss"
+        files: "static/sass/*.scss"
         tasks: ['sass']
       js:
-          files: ['js/main.js']
+          files: ['static/js/main.js']
   }
 
   # These plugins provide necessary tasks.
