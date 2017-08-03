@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Sedgwick+Ave+Display');
+
+body {
+	font: $df-size $df;
+	background-color: $bg-color;
+	color: $wr-color;
+}
+
+input {
+
+	background-color: $in-bg;
+	-webkit-input-placeholder: $in-text;
+
+  &:hover {
+    border-color: $br-color;
+    border-width: $br-color;
+    border-style: $br-style;
+  }
+
+  &:active {
+  	border-color: $br-color;
+    border-width: $br-color;
+    border-style: $br-style;
+  }
+}
+
+button {
+	background-color: $btn-bg;
+	color: $btn-text;
+}
