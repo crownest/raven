@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'colleges',
     'departments',
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'raven.urls'
+
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
