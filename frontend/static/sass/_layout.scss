@@ -2,7 +2,44 @@ html, body {
 	height: 100%;
 }
 
-div {
-	color: red;
+/*==================================
+=            LOGIN PAGE            =
+==================================*/
+.login-page {
+	  height: 100%;
+	.container, .container>.row {
+	  height: 100%;
+	}
+	.login-page__left, .login-page__right {
+		height: 100%;
+		position: relative;
+	}
+
+	.login-page__text, .login-page__form {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
 
 }
+ 
+.form-bottom{
+  	float : left;
+  	padding-top: 5px;
+ 	.left {
+ 		margin-left: 0px;
+ 		padding-right: 155px;
+ 	
+ 	}
+
+ 	.right {
+ 		
+ 		float: right;
+ 		margin-right: 0px;
+ 		
+ 	}
+	
+ 	
+ }

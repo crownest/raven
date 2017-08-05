@@ -1,0 +1,30 @@
+input[type="email"], input[type="password"], .form-control{
+
+  background-color: #29363f;
+  color : $input-text;
+  border: $border-width $border-color $border-style;
+  width: 350px;
+
+
+
+  &:hover , &:active , &:focus{
+    border:$border-width $border-style $btn-bg;
+    color:$text-color;
+  }
+
+}
+button, .btn-primary{
+  background-color: $btn-bg;
+  border: $border-width $border-style $btn-bg;
+  color: $btn-text;
+  padding: 10px 60px 10px 60px;
+  width: 350px;
+
+ &:active:focus, &:hover {
+  border: $border-width $border-style $btn-bg;
+  background-color: $btn-bg;
+  outline: transparent;
+
+ }
+
+}

@@ -1,30 +1,47 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis|Sedgwick+Ave+Display');
-
+@import url('https://fonts.googleapis.com/css?family=Sniglet&subset=latin-ext');
 body {
 	font: $df-size $df;
 	background-color: $bg-color;
 	color: $text-color;
 }
-
-input {
-
-	background-color: $input-bg;
-	-webkit-input-placeholder: $input-text;
-
-  &:hover {
-    border-color: $border-color;
-    border-width: $border-width;
-    border-style: $border-style;
-  }
-
-  &:active {
-  	border-color: $border-color;
-    border-width: $border-width;
-    border-style: $border-style;
-  }
+form{
+	border-left-style: $border-style ;
+	border-left-color: $input-text;
+	border-left-width: $border-width;
+	margin: 10px;
+	padding: 85px;
 }
 
-button {
-	background-color: $btn-bg;
-	color: $btn-text;
+a{
+ 	font-family: $df;
+ 	font-size: $df-size;
+ 	color: $text-color;
+ 	text-decoration: none;
+ 	&:hover {
+   	color: $btn-bg;
+   	text-decoration: none;
+ 	}	
+  
 }
+figure{
+	margin: auto;
+	text-align: center;
+img{
+	width: 150px;
+	height: 150px;
+	}
+}
+h1{
+	font-family: $iconf;
+	color: $btn-bg;
+	font-size: 40px;
+	text-align: center;
+
+	}
+p{
+	font-family: $df;
+	color: $input-text;
+	font-size: 18px;
+	text-align: center;
+	}
