@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as _UserAdmin
 
 # Local Django
-from users.models import User
+from users.models import User, SpareTime
 
 
 @admin.register(User)
@@ -44,3 +44,10 @@ class UserAdmin(_UserAdmin):
     )
     search_fields = ('email', 'first_name', 'last_name', 'college__name')
     ordering = ('first_name', 'last_name')
+
+
+@admin.register(SpareTime)
+class SpareTimeAdmin(admin.ModelAdmin):
+    list_display = ('start_date', 'end_date', 'user')
+    list_filter = ('start_date', 'end_date')
+    search_fields = ('user__email', 'user__first_name', 'user__last_name')
