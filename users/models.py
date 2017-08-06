@@ -36,8 +36,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
     class Meta:
-        verbose_name = "User"
-        verbose_name_plural = "Users"
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
 
     def __str__(self):
         return self.get_short_name()
@@ -48,4 +48,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         return '{first_name} {last_name}'.format(
             first_name=self.first_name, last_name=self.last_name
+        )
+
+
+class SpareTime(models.Model):
+    start_date = models.DateTimeField(verbose_name='Start date')
+    end_date = models.DateTimeField(verbose_name='End date')
+    user = models.ForeignKey(
+        verbose_name='User', to='users.User', related_name='spare_times'
+    )
+    
+    class Meta:
+        verbose_name = 'Spare Time'
+        verbose_name_plural = 'Spare Times'
+
+    def __str__(self):
+        return '{start_date} - {end_date}'.format(
+            start_date=self.start_date, end_date=self.end_date
         )
