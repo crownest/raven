@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'colleges',
     'departments',
     'users',
+    'sparetimes'
 
 ]
 
