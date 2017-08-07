@@ -2,94 +2,128 @@ html, body {
   height: 100%;
 }
 
-div {
-  color: red;
-}
-
-
 /*==================================
-=            LOGIN PAGE            =
+=            ACCOUNT PAGE            =
 ==================================*/
-.login-page {
-  
+.account-page{
   height: 100%;
+  
   .container, .container>.row {
     height: 100%;
   }
-  .login-page__left, .login-page__right {
+
+  .account-page__left, .account-page__right {
     height: 100%;
     position: relative;
   }
 
-  .login-page__text, .login-page__form {
+  .account-page__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  h1 {
+    font-family: $iconf;
+    color : $btn-bg;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: $df;
+    color: $input-text;
+    text-align: center;
+  }
+
+  .logo {
+    margin: auto;
+    text-align: center;
+
+    img {  
+      width: 150px;
+      height: 150px;
+    }
+  } 
+  }
+
+  .account-page__form {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
- 
-.form-bottom{
-  float : left;
-  padding-top: 5px;
-  
-  .left {
-    margin-left: 0px;
-    padding-right: 155px;
-  }
 
-  .right { 
-    float: right;
-    margin-right: 0px;
+/*==================================
+=            LOGIN PAGE            =
+==================================*/
+.login {
+  width: 100%;
+  border-left-width: $border-width;
+  border-left-style: $border-style;
+  border-left-color: $border-color;
+  padding: 30px 30px 30px 80px; 
+
+  .form-bottom {
+    float : left;
+    padding-top: 5px;
+  
+    .left {
+      margin-left: 0px; 
+      padding-right: 165px;
+      font-family: $df;
+      font-size: $df-size;
+      color: $text-color; 
+      text-decoration: none;
+
+      &:hover {
+        color: $btn-bg;
+        text-decoration: none;
+      }
+    }
+
+    .right { 
+      float: right;
+      margin-right: 0px;
+      font-family: $df;
+      font-size: $df-size;
+      color: $text-color; 
+      text-decoration: none;
+
+      &:hover {
+        color: $btn-bg;
+        text-decoration: none;
+      }
+    }
   }
 }
 
 /*====================================
-=            Register Page            =
+=            REGISTER PAGE            =
 ====================================*/
 .register {
+  width: 100%;
+  border-left-width: $border-width;
+  border-left-style: $border-style;
+  border-left-color: $border-color;
+  padding: 30px 30px 30px 80px; 
 
-  .select-box {
-    position: relative;
-    padding: 17px;
-    z-index: 1;
-    border: $border-width $border-style $border-color;
-    border-radius:5px;
+  .link{
+    width: 75%;
+    
+    a {
+      font-family: $df;
+      font-size: $df-size;
+      color: $text-color; 
+      float: right;
+      margin: 7px 10px 0px 0px;
+      text-decoration: none;
 
-
-    &:after {
-      content:"";
-      position: absolute;
-      top: 15px;
-      right: 10px;
-      z-index: 3;
-      border: 6px solid transparent;
-      border-top: 6px solid $input-text;
-    }
-
-    select {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      border: 0px;
-      box-shadow: 0px;
-      overflow: hidden;
-      z-index: 2;
-      cursor: pointer;
-      -webkit-appearance: none;
-      -max-appearance: none;
-      -ms-appearance: none;
-    }
-
-    &:hover{
-      border: $border-width $border-style $btn-bg;
-    }
-
-    &:focus, &:active {
-      border: $border-width $border-style $btn-bg;
-      color: $text-color;
+      &:hover {
+        color: $btn-bg;
+        text-decoration: none;
+      }
     }
   }
 }
