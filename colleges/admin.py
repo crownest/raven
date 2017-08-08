@@ -1,7 +1,9 @@
 # Django
 from django.contrib import admin
+
 # Local Django
 from colleges.models import College
+
 
 @admin.register(College)
 class CollegeAdmin(admin.ModelAdmin):
