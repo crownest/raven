@@ -1,0 +1,6 @@
+PENDING, APPROVED, CANCELED = (0, 1, 2)
+REGISTRATIONREQUEST_STATUSES =  (
+    (PENDING, 'Pending'),
+    (APPROVED, 'Approved'),
+    (CANCELED, 'Canceled')
+)
