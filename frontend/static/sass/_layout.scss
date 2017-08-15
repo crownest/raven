@@ -92,7 +92,7 @@ html,body {
       float: right;
       margin-right: 0px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -121,7 +121,7 @@ html,body {
     
     a {
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       float: right;
       margin: 7px 10px 0px 0px;
@@ -237,11 +237,11 @@ html,body {
 =            INDEX PAGE            =
 ==================================*/
 
-.content{
+.index-content {
   background-color: $container-bg;
   height: calc(100% - 135px);
 
-  .content-item {
+  .index-content-item {
     display: inline-block;
     max-width: 400px;
     width: 100%;
@@ -253,12 +253,12 @@ html,body {
     box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
   }
 
-  .content-item-left {
+  .department-table{
     float: right;
     margin-left: 100px;
   }
 
-  .content-item-right {
+  .teacher-table {
     opacity: 0.66;
   }
 
@@ -291,36 +291,18 @@ html,body {
         font-style: italic;
       }
     }
-
-    .mCSB_2_container {
-      width: 100%;
-    }
-
-    .mCSB_scrollTools {
-      .mCSB_draggerRail {
-        width: 10px;
-        border-radius: 100px;
-        background-color: #bbdaff;
-      }
-
-      .mCSB_drager_bar {
-        width: 6px;
-        border-radius: 100px;
-        background-color: #ffffff;
-      }
-    }
   }
 }
-
 
 /*====================================
 =            REQUEST PAGE            =
 ====================================*/
 
-.content{
+.request-content {
   background-color: #f4f4f4;
   height: calc(100% - 135px);
-  .table{
+
+  .table {
     width: 750px;
     height: 350px;
     margin-right: auto;
@@ -330,12 +312,15 @@ html,body {
     border-radius: 10px;
     background-color:#fff;
     box-shadow: 0 4px 6px 0 rgba(190, 165, 165, 0.5);
-    .table_header{
+    
+    .table_header {
       height: 50px;
-      ul{
+
+      ul {
         float: left;
         width: 100%;
-        li{
+
+        li {
           color: #4990e2;
           font-weight: bold;
           float: left;
@@ -348,55 +333,39 @@ html,body {
           width: 25%;
           padding:15px;
           font-size:14px;
-          &:last-child{
+
+          &:last-child {
             border-right: none;
           }
         }
       }
     }
-    .table_body{
+
+    .table_body {
       width: 100%;
       height: 350px;
       overflow: auto;
       background-color: $text-color;
       padding:15px;
-      .box{
+
+      .box {
         margin-top: -12px;
         margin-bottom: 10px;
-      
-      }
-      .mCSB_2_container {
-        width: 100%;
       }
 
-        .mCSB_scrollTools {
-
-          .mCSB_draggerRail {
-            width: 10px;
-            border-radius: 100px;
-            background-color: #bbdaff;
-          }
-
-        .mCSB_drager_bar {
-          width: 6px;
-          border-radius: 100px;
-          background-color: #ffffff;
-        }
-      }
-      span{
+      span {
         color: #000;
         margin-left: 0px;
       } 
-      input[type="radio"], input[type="checkbox"]{
-        margin-top: 15px;
-      }
     }
-    .table_footer{
+
+    .table_footer {
       background-color: #fff;
       margin-top: 0px;
       height: 60px;
       padding:15px;
-      .reject{
+
+      .reject {
         width: 200px;
         height: 35px;
         text-align: center;
@@ -408,7 +377,8 @@ html,body {
         font-size: 14px;
         font-weight: 500;
       }
-      .confirm{
+
+      .confirm {
         width: 200px;
         height: 35px;
         text-align: center;
@@ -424,3 +394,26 @@ html,body {
     }
   }
 } 
+
+/*==============================
+=            SCROLL            =
+==============================*/
+
+.mCSB_2_container {
+  width: 100%;
+}
+
+.mCSB_scrollTools {
+  
+  .mCSB_draggerRail {
+    width: 10px;
+    border-radius: 100px;
+    background-color: #bbdaff;
+  }
+
+  .mCSB_drager_bar {
+    width: 8px;
+    border-radius: 100px;
+    background-color: #ffffff;
+  }
+}
