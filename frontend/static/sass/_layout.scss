@@ -7,7 +7,7 @@ html, body {
 ==================================*/
 .account-page{
   height: 100%;
-  background-color: $bg-color;;
+  background-color: $bg-color;
   .container, .container>.row {
     height: 100%;
   }
@@ -71,9 +71,9 @@ html, body {
   
     .left {
       margin-left: 0px; 
-      padding-right: 165px;
+      padding-right: 155px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -87,7 +87,7 @@ html, body {
       float: right;
       margin-right: 0px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -140,13 +140,13 @@ html, body {
     display: inline-block;
     width: 78px;
     height: 78px;
-    border: 2px $border-style #bbdbff;
+    border: 4px $border-style #bbdbff;
     border-radius: 50%; 
     overflow: hidden;         
     
     img{
       width: 100%;
-      height: 100%;    
+      height: 100%;  
       }
     }
 
@@ -156,8 +156,8 @@ html, body {
     margin-left: 30px;
     li{
       float: left;
-      padding:15px 20px 15px 20px;
-      border-right-style:$border-style;
+      padding: 15px 20px 15px 20px;
+      border-right-style: $border-style;
       border-right-width: $border-width;
       border-right-color: #d4d4d4;
       &:last-child{
@@ -176,7 +176,7 @@ html, body {
       border-radius: 5px;
       font-weight: 500;
       &:focus, &.active  {
-        border: $border-width $border-style #bbdaff; 
+      border: $border-width $border-style #bbdaff; 
       }
     }
   }
@@ -216,7 +216,7 @@ html, body {
 
 .content{
   background-color: #f4f4f4;
-  height: 1024px;
+  height: calc(100% - 135px);
   .table{
     width: 750px;
     height: 350px;
@@ -224,9 +224,9 @@ html, body {
     margin-left: auto;
     margin-top: 50px;
     position: relative;
-    box-shadow: 0 2px 0px 0 #eeeeee;
-    border-radius: 7px;
+    border-radius: 10px;
     background-color:#fff;
+    box-shadow: 0 4px 6px 0 rgba(190, 165, 165, 0.5);
     .table_header{
       height: 50px;
       ul{
@@ -256,20 +256,30 @@ html, body {
       height: 350px;
       overflow: auto;
       background-color: $text-color;
-      .jspVerticalBar{
-        background-color: $text-color;
-      .jspTrack{
-        width: 10px;
-        border-radius: 100px;
-        background-color: #bbdaff;
+      padding:15px;
+      .box{
+        margin-top: -12px;
+        margin-bottom: 10px;
+      
       }
-      .jspDrag{
-        width: 6px;
-        border-radius: 100px;
-        background-color: #ffffff;
-        padding: 2px;
+      .mCSB_2_container {
+        width: 100%;
       }
-    }
+
+        .mCSB_scrollTools {
+
+          .mCSB_draggerRail {
+            width: 10px;
+            border-radius: 100px;
+            background-color: #bbdaff;
+          }
+
+        .mCSB_drager_bar {
+          width: 6px;
+          border-radius: 100px;
+          background-color: #ffffff;
+        }
+      }
       span{
         color: #000;
         margin-left: 0px;
@@ -284,30 +294,29 @@ html, body {
       height: 60px;
       padding:15px;
       .reject{
-        width: 180px;
-        height: 32px;
+        width: 200px;
+        height: 35px;
         text-align: center;
         background-color: transparent;
         color: #000;
         float: right;
-        border-style:$border-style;
-        border-width: $border-width;
-        border-color: #d0011b;
+        border: solid 1px #d0011b;
         border-radius: 5px;
         font-size: 14px;
         font-weight: 500;
       }
       .confirm{
-        width: 180px;
-        height: 32px;
+        width: 200px;
+        height: 35px;
         text-align: center;
         background-color: transparent;
         color: #000;
         float: right;
-        margin-right: 10px;
+        margin-right: 20px;
         border-radius: 5px;
         font-size: 14px;
         font-weight: 500;
+        border: solid 1px #7ed321;
       }
     }
   }
