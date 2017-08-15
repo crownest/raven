@@ -10,7 +10,11 @@ input[type="text"], input[type="email"], .form-control {
   }
 }
 
-button, .btn-primary{
+input[type="radio"], input[type="checkbox"] {
+  margin-top: 15px;
+}
+
+button, .btn-primary {
   background-color: $btn-bg;
   border: $border-width $border-style $btn-bg;
   color: $btn-text;
