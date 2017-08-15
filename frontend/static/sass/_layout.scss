@@ -1,4 +1,4 @@
-html, body {
+html,body {
   height: 100%;
 }
 
@@ -7,6 +7,7 @@ html, body {
 ==================================*/
 .account-page{
   height: 100%;
+  background-color: $bg-color;
   
   .container, .container>.row {
     height: 100%;
@@ -71,9 +72,9 @@ html, body {
   
     .left {
       margin-left: 0px; 
-      padding-right: 165px;
+      padding-right: 155px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -123,6 +124,180 @@ html, body {
       &:hover {
         color: $btn-bg;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+/*===================================
+=            HEADER             =
+===================================*/
+
+.header-left {
+  display: inline-block;
+  padding: 19px;
+
+  figure {
+    display: inline-block;
+    width: 78px;
+    height: 78px;
+    border: 4px $border-style #bbdbff;;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .header-left-menu {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30px;
+
+    li {
+      float: left;
+      padding: 15px 20px 15px 20px;
+      border-right-width: $border-width;
+      border-right-style: $border-style;
+      border-right-color: #d4d4d4;
+
+      &:last-child {
+        border: none;
+      }
+
+      &:first-child {
+        padding-left: 0px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500; 
+      border-radius: 5px;
+
+      &.active, &:focus {
+        border: $border-width $border-style #bbdaff;
+      }
+    }
+  }
+}
+
+.header-right {
+  float: right;
+  padding: 20px 20px 20px 0px;
+
+  .header-right-menu {
+    float: right;
+
+    li {
+      float: left;
+      padding: 30px 15px 30px 0px;
+    }
+
+    .left {
+      text-decoration: none;
+      color: #4990e2;
+      font-weight: 500;
+
+      i {
+        color: #4990e2;
+        vertical-align: middle;
+        margin: 0px 5px 0px 0px;
+      }
+    }
+
+    .right {
+      text-decoration: none;
+      color: #d0011b;
+      font-weight: 500;
+
+      i {
+        color: #d0011b; 
+        vertical-align: middle;
+        margin: 0px 5px 0px 0px;
+      }
+    }
+  }
+}
+
+/*==================================
+=            INDEX PAGE            =
+==================================*/
+.content{
+  background-color: $container-bg;
+  height: calc(100% - 135px);
+
+  .content-item {
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 60px;
+    border-radius: 7px;
+    background-color: white;
+    color: $bg-color;
+    position:relative;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+  }
+
+  .content-item-left {
+    float: right;
+    margin-left: 100px;
+  }
+
+  .content-item-right {
+    opacity: 0.66;
+  }
+
+  h4 {
+    text-align: center;
+    color: #4990e2;
+    padding: 10px;
+    border-bottom-width: 2px;
+    border-bottom-style: $border-style;
+    border-bottom-color: $container-bg;
+  }
+
+  .scroll-pane {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+
+    li {
+      text-align: left;
+      padding: 5px 0px 5px 0px;
+    }
+
+    a {
+      padding:15px 0px 15px 60px;
+      text-decoration: none;
+      color: $bg-color;
+
+      &:focus, &:active {
+        color: #bd0fe1;
+        font-style: italic;
+      }
+    }
+
+    .mCSB_2_container {
+      width: 100%;
+    }
+
+    .mCSB_scrollTools {
+      .mCSB_draggerRail {
+        width: 10px;
+        border-radius: 100px;
+        background-color: #bbdaff;
+      }
+
+      .mCSB_drager_bar {
+        width: 6px;
+        border-radius: 100px;
+        background-color: #ffffff;
       }
     }
   }

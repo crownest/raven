@@ -17,7 +17,7 @@ button, .btn-primary{
   padding: 10px 60px 10px 60px;
   width: 75%;
 
-  &:active:focus, &:hover {
+  &:active:focus, &:hover, &:active, &:focus {
     border: $border-width $border-style $btn-bg;
     background-color: $btn-bg;
     outline: transparent;
