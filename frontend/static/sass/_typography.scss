@@ -1,8 +1,41 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis|Sedgwick+Ave+Display');
 @import url('https://fonts.googleapis.com/css?family=Sniglet&subset=latin-ext');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
 
 body {
-  font: $df-size $df;
-  background-color: $bg-color;
+  font-family: $df;
   color: $text-color;
+}
+
+header {
+  height: 135px;
+  width: 100%;
+  background-color: $text-color;
+  box-shadow: 0 3px 3px 0 #eeeeee;
+  position: relative;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
