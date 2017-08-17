@@ -55,6 +55,11 @@ html,body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    border-left-width: $border-width;
+    border-left-style: $border-style;
+    border-left-color: $border-color;
+    padding: 30px 30px 30px 80px;
   }
 }
 
@@ -64,11 +69,6 @@ html,body {
 ==================================*/
 
 .login {
-  width: 100%;
-  border-left-width: $border-width;
-  border-left-style: $border-style;
-  border-left-color: $border-color;
-  padding: 30px 30px 30px 80px; 
 
   .form-bottom {
     float : left;
@@ -110,11 +110,6 @@ html,body {
 ====================================*/
 
 .register {
-  width: 100%;
-  border-left-width: $border-width;
-  border-left-style: $border-style;
-  border-left-color: $border-color;
-  padding: 30px 30px 30px 80px; 
 
   .link{
     width: 75%;
@@ -415,5 +410,30 @@ html,body {
     width: 8px;
     border-radius: 100px;
     background-color: #ffffff;
+  }
+}
+
+/*===========================================
+=            RESET PASSWORD PAGE            =
+===========================================*/
+
+.forgot-password {
+
+  .bottom-link{
+    width: 75%;
+    
+    a {
+      font-family: $df;
+      font-size: 14px;
+      color: $text-color; 
+      float: right;
+      margin: 7px 10px 0px 0px;
+      text-decoration: none;
+
+      &:hover {
+        color: $btn-bg;
+        text-decoration: none;
+      }
+    }
   }
 }
