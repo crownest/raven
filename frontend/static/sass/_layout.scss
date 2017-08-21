@@ -201,10 +201,21 @@ html,body {
       padding: 30px 15px 30px 0px;
     }
 
-    .left {
+    a {
       text-decoration: none;
+      color: #000;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500; 
+      border-radius: 5px;
+
+      &.active, &:focus {
+        border: $border-width $border-style #bbdaff;
+      }
+    }
+
+    .left {
       color: #4990e2;
-      font-weight: 500;
 
       i {
         color: #4990e2;
@@ -214,9 +225,7 @@ html,body {
     }
 
     .right {
-      text-decoration: none;
       color: #d0011b;
-      font-weight: 500;
 
       i {
         color: #d0011b; 
@@ -433,6 +442,67 @@ html,body {
       &:hover {
         color: $btn-bg;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+/*=====================================
+=            SETTİNGS PAGE            =
+=====================================*/
+.settings {
+  background-color: $container-bg;
+  height: calc(100% - 135px);
+
+  .settings-box {
+    width: 80%;
+    height: 246px;
+    color: #4a4a4a;
+    background-color: #FFF;
+    margin: auto;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+
+    h1 {
+      border-bottom-width: 4px;
+      border-bottom-style: $border-style;
+      border-bottom-color: #d4d4d4;
+      padding: 30px 0px 30px 50px;
+      font-weight: 700;
+    }
+
+    ul {
+      margin-left: 40px;
+
+      li {
+        padding: 20px 15px 20px 15px;
+        font-weight: 550;
+
+        a {
+          text-decoration: none;
+          font-size: 17px;
+          color: #000;
+          position: relative;
+        }
+
+        .settings-link-top {
+          font-size: 12px;
+          position: absolute;
+          top: 140px;
+          right: 40px;
+        }
+
+        .settings-link-bottom {
+          font-size: 12px;
+          position: absolute;
+          top: 200px;
+          right: 40px;
+        }
+      }
+      
+      .settings-link {
+        padding-right: 10px;
       }
     }
   }
