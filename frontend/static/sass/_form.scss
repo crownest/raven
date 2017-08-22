@@ -10,14 +10,18 @@ input[type="text"], input[type="email"], .form-control {
   }
 }
 
-button, .btn-primary{
+input[type="radio"], input[type="checkbox"] {
+  margin-top: 15px;
+}
+
+button, .btn-primary {
   background-color: $btn-bg;
   border: $border-width $border-style $btn-bg;
   color: $btn-text;
   padding: 10px 60px 10px 60px;
   width: 75%;
 
-  &:active:focus, &:hover {
+  &:active:focus, &:hover, &:active, &:focus {
     border: $border-width $border-style $btn-bg;
     background-color: $btn-bg;
     outline: transparent;

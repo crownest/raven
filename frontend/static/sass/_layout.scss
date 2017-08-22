@@ -1,12 +1,15 @@
-html, body {
+html,body {
   height: 100%;
 }
 
+
 /*==================================
-=            ACCOUNT PAGE            =
+=            ACCOUNT PAGE          =
 ==================================*/
+
 .account-page{
   height: 100%;
+  background-color: $bg-color;
   
   .container, .container>.row {
     height: 100%;
@@ -52,18 +55,20 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    border-left-width: $border-width;
+    border-left-style: $border-style;
+    border-left-color: $border-color;
+    padding: 30px 30px 30px 80px;
   }
 }
+
 
 /*==================================
 =            LOGIN PAGE            =
 ==================================*/
+
 .login {
-  width: 100%;
-  border-left-width: $border-width;
-  border-left-style: $border-style;
-  border-left-color: $border-color;
-  padding: 30px 30px 30px 80px; 
 
   .form-bottom {
     float : left;
@@ -71,9 +76,9 @@ html, body {
   
     .left {
       margin-left: 0px; 
-      padding-right: 165px;
+      padding-right: 155px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -87,7 +92,7 @@ html, body {
       float: right;
       margin-right: 0px;
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       text-decoration: none;
 
@@ -99,22 +104,19 @@ html, body {
   }
 }
 
+
 /*====================================
-=            REGISTER PAGE            =
+=            REGISTER PAGE           =
 ====================================*/
+
 .register {
-  width: 100%;
-  border-left-width: $border-width;
-  border-left-style: $border-style;
-  border-left-color: $border-color;
-  padding: 30px 30px 30px 80px; 
 
   .link{
     width: 75%;
     
     a {
       font-family: $df;
-      font-size: $df-size;
+      font-size: 14px;
       color: $text-color; 
       float: right;
       margin: 7px 10px 0px 0px;
@@ -123,6 +125,413 @@ html, body {
       &:hover {
         color: $btn-bg;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+
+/*===================================
+=            HEADER                 =
+===================================*/
+
+.header-left {
+  display: inline-block;
+  padding: 19px;
+
+  figure {
+    display: inline-block;
+    width: 78px;
+    height: 78px;
+    border: 4px $border-style #bbdbff;;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .header-left-menu {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30px;
+
+    li {
+      float: left;
+      padding: 15px 20px 15px 20px;
+      border-right-width: $border-width;
+      border-right-style: $border-style;
+      border-right-color: #d4d4d4;
+
+      &:last-child {
+        border: none;
+      }
+
+      &:first-child {
+        padding-left: 0px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500; 
+      border-radius: 5px;
+
+      &.active, &:focus {
+        border: $border-width $border-style #bbdaff;
+      }
+    }
+  }
+}
+
+.header-right {
+  float: right;
+  padding: 20px 20px 20px 0px;
+
+  .header-right-menu {
+    float: right;
+
+    li {
+      float: left;
+      padding: 30px 15px 30px 0px;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 500px;
+      border-radius: 5px;
+
+      &.active, &:focus {
+        border: $border-width $border-style #bbdaff;
+      }
+    }
+
+    .left {
+      color: #4990e2;
+
+      i {
+        color: #4990e2;
+        vertical-align: middle;
+        margin: 0px 5px 0px 0px;
+      }
+    }
+
+    .right {
+      color: #d0011b;
+
+      i {
+        color: #d0011b; 
+        vertical-align: middle;
+        margin: 0px 5px 0px 0px;
+      }
+    }
+  }
+}
+
+
+/*==================================
+=            INDEX PAGE            =
+==================================*/
+
+.index-content {
+  background-color: $container-bg;
+  height: calc(100% - 135px);
+
+  .index-content-item {
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 60px;
+    border-radius: 7px;
+    background-color: white;
+    color: $bg-color;
+    position:relative;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+  }
+
+  .department-table{
+    float: right;
+    margin-left: 100px;
+  }
+
+  .teacher-table {
+    opacity: 0.66;
+  }
+
+  h4 {
+    text-align: center;
+    color: #4990e2;
+    padding: 10px;
+    border-bottom-width: 2px;
+    border-bottom-style: $border-style;
+    border-bottom-color: $container-bg;
+  }
+
+  .scroll-pane {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+
+    li {
+      text-align: left;
+      padding: 5px 0px 5px 0px;
+    }
+
+    a {
+      padding:15px 0px 15px 60px;
+      text-decoration: none;
+      color: $bg-color;
+
+      &:focus, &:active {
+        color: #bd0fe1;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+/*====================================
+=            REQUEST PAGE            =
+====================================*/
+
+.request-content {
+  background-color: #f4f4f4;
+  height: calc(100% - 135px);
+
+  .table {
+    width: 750px;
+    height: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    position: relative;
+    border-radius: 10px;
+    background-color:#fff;
+    box-shadow: 0 4px 6px 0 rgba(190, 165, 165, 0.5);
+    
+    .table_header {
+      height: 50px;
+
+      ul {
+        float: left;
+        width: 100%;
+
+        li {
+          color: #4990e2;
+          font-weight: bold;
+          float: left;
+          border-right-style: $border-style;
+          border-right-width: $border-width;
+          border-right-color: LightGray;
+          border-bottom-style: $border-style;
+          border-bottom-width: 2px;
+          border-bottom-color: LightGray;
+          width: 25%;
+          padding:15px;
+          font-size:14px;
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+    .table_body {
+      width: 100%;
+      height: 350px;
+      overflow: auto;
+      background-color: $text-color;
+      padding:15px;
+
+      .box {
+        margin-top: -12px;
+        margin-bottom: 10px;
+      }
+
+      span {
+        color: #000;
+        margin-left: 0px;
+      } 
+    }
+
+    .table_footer {
+      background-color: #fff;
+      margin-top: 0px;
+      height: 60px;
+      padding:15px;
+
+      .reject {
+        width: 200px;
+        height: 35px;
+        text-align: center;
+        background-color: transparent;
+        color: #000;
+        float: right;
+        border: solid 1px #d0011b;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .confirm {
+        width: 200px;
+        height: 35px;
+        text-align: center;
+        background-color: transparent;
+        color: #000;
+        float: right;
+        margin-right: 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        border: solid 1px #7ed321;
+      }
+    }
+  }
+} 
+
+/*==============================
+=            SCROLL            =
+==============================*/
+
+.mCSB_2_container {
+  width: 100%;
+}
+
+.mCSB_scrollTools {
+  
+  .mCSB_draggerRail {
+    width: 10px;
+    border-radius: 100px;
+    background-color: #bbdaff;
+  }
+
+  .mCSB_drager_bar {
+    width: 8px;
+    border-radius: 100px;
+    background-color: #ffffff;
+  }
+}
+
+/*===========================================
+=            FORGOT PASSWORD PAGE            =
+===========================================*/
+
+.forgot-password {
+
+  .bottom-link{
+    width: 75%;
+    
+    a {
+      font-family: $df;
+      font-size: 14px;
+      color: $text-color; 
+      float: right;
+      margin: 7px 10px 0px 0px;
+      text-decoration: none;
+
+      &:hover {
+        color: $btn-bg;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*======================================
+=     SETTINGS-USER-INFO PAGE          =
+======================================*/
+.settings-userinfo-content {
+  background-color: #f4f4f4;
+  height: calc(100% - 135px);
+
+  .info-box {
+    margin-top:50px;
+    width: 1100px;
+    height: 447px;
+    background-color: $text-color;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+
+    .info-header {
+      border-bottom-style: solid;
+      border-bottom-width: 7px;
+      border-bottom-color: #f3f3f3;
+
+      h1 {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: left;
+        color: #4a4a4a;
+        padding-left: 75px;
+      }
+    }
+    .info-body {
+
+      .info-body-left {
+
+      ul {
+        float: right;
+        padding: 20px;
+      }
+
+        li {
+          font-size: 18px;
+          font-family: $df;
+          font-weight: bold;
+          text-align: left;
+          color: #4a4a4a;
+          padding:5px;
+        }
+      }
+
+      .info-body-right {
+
+        ul {
+          padding: 20px;
+        }
+
+        li {
+          color: #f1f1f1;
+          input {
+            width: 292px;
+            font-size: 18px;
+            font-family: $df;
+            font-weight: bold;
+            text-align: left;
+            color: #4a4a4a;
+            border: none;
+            padding:4px;
+            outline: none;
+            border-bottom: $border-style $border-width #979797;
+          }
+          input::placeholder {
+            color: LightGray;
+          }
+        }
+
+        .info-confirm {
+          width: 170px;
+          height: 44px;
+          border-radius: 3px;
+          background-color: #4990e2;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left;
+          color: #ffffff;
+          padding-left: 45px;
+          margin-left: 150px;
+
+        }
       }
     }
   }
