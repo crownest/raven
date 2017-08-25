@@ -298,6 +298,7 @@ html,body {
   }
 }
 
+
 /*====================================
 =            REQUEST PAGE            =
 ====================================*/
@@ -399,6 +400,7 @@ html,body {
   }
 } 
 
+
 /*==============================
 =            SCROLL            =
 ==============================*/
@@ -422,8 +424,9 @@ html,body {
   }
 }
 
+
 /*===========================================
-=            FORGOT PASSWORD PAGE            =
+=            FORGOT PASSWORD PAGE           =
 ===========================================*/
 
 .forgot-password {
@@ -446,6 +449,7 @@ html,body {
     }
   }
 }
+
 
 /*=====================================
 =            SETTINGS PAGE            =
@@ -540,6 +544,7 @@ html,body {
         padding-left: 75px;
       }
     }
+
     .info-body {
 
       .info-body-left {
@@ -597,9 +602,148 @@ html,body {
           padding-left: 45px;
           margin-left: 150px;
           margin-top: 6px;
-
         }
       }
+    }
+  }
+}
+
+
+/*============================================
+=            APPOINTMENT ADD PAGE            =
+============================================*/
+
+.appointment-add {
+  background-color: $container-bg;
+  height: 100%;
+
+  .appointment-add-item {
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+    margin: 30px auto;
+    width: 80%;
+    height: 600px;
+    background-color: #FFF;
+
+    a {
+      text-decoration: none;
+      color: #4990e2;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .slider-button-left {
+      position: absolute;
+      top: 27px;
+      left: 25px;
+      z-index: 1;
+    }
+
+    .slider-button-right {
+      position: absolute;
+      top: 27px;
+      right: 25px;
+      z-index: 1;
+    }
+
+    .appointment-date {
+      position: relative;
+      margin: auto;
+      padding: 23px 0px 0px 0px;
+
+      p {
+        display: inline-block;
+        color: #4990e2;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .warn-date {
+        color: #9b9b9b;
+        text-decoration: line-through;
+        text-decoration-color: #d0011b;
+      }
+
+      .full-date{
+        color: #d0011b;
+        font-weight: 500;
+        padding: 0px 80px 0px 10px;
+      }
+
+      .offset {
+        width: 0px;
+      }
+    }
+
+    .appointment-time {
+      width: 100%;
+      height: 300px;
+      overflow: auto;
+      overflow-X:hidden;
+      border-top-width: 2px;
+      border-top-style: $border-style;
+      border-top-color: #d4d4d4;
+
+     .appointment-time-item {
+        display: inline-block;
+
+        li {
+          padding: 15px 10px 15px 10px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #bd0fe1;
+          font-size: 16px;
+
+          &:focus {
+            color: #75d701;
+            outline: transparent;
+            font-style: italic;
+            font-weight: 500;
+          }
+
+          &.full {
+            color: #9b9b9b;
+          }
+        }
+
+        i {
+          opacity: 0.16;
+          color: #7200da;
+          font-size: 80px;
+          margin: 120px 0px 0px 20px;
+        }
+      }
+    }
+
+    .t-name {
+      font-style: italic;
+      font-size: 14px;
+      color: #000;
+      height: 10px;
+      margin: 65px 0px 0px 100px;
+    }
+
+    .appointment-cause {
+      font-weight: 500;
+      font-size: 14px;
+      color: #bd0fe1;
+      margin: 35px 0px 0px 100px;
+    }
+
+    .appointment-add-button {
+      width: 150px;
+      height: 45px;
+      color: #000;
+      background-color: #FFF;
+      border: $border-width $border-style #75d701;
+      border-radius: 5px;
+      padding: 0px;
+      margin: 100px 0px 0px 70px;
     }
   }
 }

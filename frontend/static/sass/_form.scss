@@ -14,6 +14,13 @@ input[type="radio"], input[type="checkbox"] {
   margin-top: 15px;
 }
 
+textarea {
+  width: 450px;
+  height: 45px;
+  margin: 100px 0px 0px 0px;
+  color: #000;
+}
+
 button, .btn-primary {
   background-color: $btn-bg;
   border: $border-width $border-style $btn-bg;

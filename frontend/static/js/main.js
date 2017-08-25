@@ -1,5 +1,5 @@
 (function($){
-    $(window).on("load",function(){
-        $(".scroll-pane").mCustomScrollbar();
-    });
+  $(window).on("load",function(){
+    $(".scroll-pane").mCustomScrollbar();
+  });
 })(jQuery);
