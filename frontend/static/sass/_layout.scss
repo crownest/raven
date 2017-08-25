@@ -524,7 +524,7 @@ html,body {
 
   .info-box {
     margin-top:50px;
-    width: 980px;
+    width: 75%;
     height: 445px;
     background-color: $text-color;
     margin-right: auto;
@@ -608,6 +608,101 @@ html,body {
   }
 }
 
+
+/*==========================================
+=            PASSWORD EDIT PAGE            =
+==========================================*/
+
+
+.password-edit-content {
+  background-color: #f4f4f4;
+  height: calc(100% - 135px);
+
+  .password-edit-box {
+    margin-top:50px;
+    width: 75%;
+    height: 402px;
+    background-color: $text-color;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 2px 4px 0 rgba(190, 165, 165, 0.5);
+
+    .password-edit-header {
+      border-bottom-style: solid;
+      border-bottom-width: 7px;
+      border-bottom-color: #f3f3f3;
+
+      h1 {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: left;
+        color: #4a4a4a;
+        padding-left: 75px;
+      }
+    }
+
+    .password-edit-body {
+
+      .password-edit-body-left {
+
+        ul {
+        float: right;
+        padding: 20px;
+        }
+
+        li {
+          font-size: 18px;
+          font-family: $df;
+          font-weight: bold;
+          text-align: left;
+          color: #4a4a4a;
+          padding:10px;
+          margin-top: 15px;
+        }
+      }
+
+      .password-edit-body-right {
+
+        ul {
+          padding: 20px;
+        }
+
+        li {
+          color: #f1f1f1;
+          input {
+            width: 292px;
+            font-size: 18px;
+            font-family: $df;
+            font-weight: bold;
+            text-align: left;
+            color: #4a4a4a;
+            border: none;
+            margin-top: 30px;
+            outline: none;
+            border-bottom: $border-style $border-width #979797;
+          }
+          input::placeholder {
+            color: LightGray;
+          }
+        }
+
+        .password-edit-confirm {
+          width: 170px;
+          height: 44px;
+          border-radius: 4px;
+          background-color: #4990e2;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left;
+          color: #ffffff;
+          padding-left: 45px;
+          margin-left: 150px;
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+}
 
 /*============================================
 =            APPOINTMENT ADD PAGE            =
