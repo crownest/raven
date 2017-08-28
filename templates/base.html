@@ -1,0 +1,23 @@
+{% load i18n staticfiles %}
+
+<!DOCTYPE html>
+<html {% block html-class %}{% endblock%}>
+<head>
+  {% block header %}
+	  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
+  {% endblock %}
+
+  {% block style %}
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/reset.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/bootstrap.min.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/slick.css' %}">
+  	<link rel="stylesheet" type="icon" href="{% static 'css/lib/font-awesome.min.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'fonts/glyphicons-halflings-regular.woff2' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  {% endblock %}
+</head>
+<body>
+	{% block content %}{% endblock%}
+  {% block script %}{% endblock %}
+</body>
+</html>
