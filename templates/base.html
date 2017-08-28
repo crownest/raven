@@ -1,23 +1,41 @@
 {% load i18n staticfiles %}
+{% load raven_extras %}
+
 
 <!DOCTYPE html>
 <html {% block html-class %}{% endblock%}>
 <head>
   {% block header %}
-	  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
   {% endblock %}
 
+  <title>{% block title %}Raven{% endblock %}</title>
+
   {% block style %}
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/reset.css' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/bootstrap.min.css' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/lib/slick.css' %}">
-  	<link rel="stylesheet" type="icon" href="{% static 'css/lib/font-awesome.min.css' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'fonts/glyphicons-halflings-regular.woff2' %}">
-  	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
   {% endblock %}
 </head>
-<body>
-	{% block content %}{% endblock%}
-  {% block script %}{% endblock %}
+<body {% block body-class %}{% endblock %}>
+  {% block content %}{% endblock%}
+
+  {% block script %}
+     <script type="text/javascript" src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+    {% if messages %}
+      <script type="text/javascript">
+        alertify.maxLogItems(500)
+        {% for message in messages %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            .error("{{message}}"){% if forloop.last %};{% endif %}
+          {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            .success("{{message}}"){% if forloop.last %};{% endif %}
+          {% else %}
+            .log("{{message}}"){% if forloop.last %};{% endif %}
+          {% endif %}
+        {% endfor %}
+      </script>
+    {% endif %}
+  {% endblock %}
 </body>
 </html>
