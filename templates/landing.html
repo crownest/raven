@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load i18n staticfiles %}
+{% load raven_extras %}
+
+
+{% block title%}{{block.super }} | {{  title }}{% endblock %}
+
+{% block body-class %}class="account-page"{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 account-page__left">  
+        <div class="account-page__text">
+          <figure class="logo"><img src="{% static 'img/logo.png' %}"></figure>  
+          <h1>RAVEN</h1>
+          <p>This website is designed for getting appointment from your consultant when they're available.</p>
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 account-page__right">
+        <form class="login account-page__form" action="{% url 'landing' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            {% add_attrs login_form.email class="form-control" %} {{ login_form.email.errors }}
+          </div>
+          <div class="form-group">
+            {% add_attrs login_form.password class="form-control" id="exampleInputPassword1" %}
+          </div>
+          <button type="submit" name="{{ login_form.prefix }}" class="btn btn-primary">SIGN IN</button>
+          <div class="form-bottom">
+            <a class="left" href="forgot-password.html">Forgot Password? </a>
+            <a class="right" href="{% url 'register' %}">Creat Account</a> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  {{ block.super }}
+
+  {% if login_form.errors %}
+    <script type="text/javascript">
+      alertify.maxLogItems(500)
+      {% for error in login_form.non_field_errors %}
+        {% if error.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          .error("{{error}}"){% if forloop.last %};{% endif %}
+        {% elif error.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          .success("{{error}}"){% if forloop.last %};{% endif %}
+        {% else %}
+          .log("{{error}}"){% if forloop.last %};{% endif %}
+        {% endif %}
+      {% endfor %}
+    </script>
+  {% endif %}
+{% endblock %}

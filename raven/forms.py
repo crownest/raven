@@ -1,22 +1,35 @@
 # Django
 from django import forms
-from django.contrib.auth import authenticate, get_user_model, login
-
-# Local Django
-from users.models import User
+from django.contrib.auth import authenticate
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(max_length=64)
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'placeholder': ' Enter Email'}), required=True
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), required=True
+    )
 
-    def clean(self, *args, **kwargs):
-        email = self.cleaned_data.get('email')
-        password = self.cleaned_data.get('password')
-        if email and password:
-            self.user = authenticate(email=email, password=password)
-            if not self.user:
-                raise forms.ValidationError("This user does not exist")
-        return super(LoginForm, self).clean(*args, **kwargs)
-    def get_user(self):
-        return self.user
+    class Meta:
+        fields = ('email', 'password')
+
+    def clean(self):
+        clean = super(LoginForm, self).clean()
+
+        email = self.cleaned_data.get("email")
+        password = self.cleaned_data.get("password")
+
+        if not email or not password:
+            raise forms.ValidationError('Incorrect email address or password!')
+
+        user = authenticate(email=email, password=password)
+
+        if not user:
+            raise forms.ValidationError('Incorrect email address or password!')
+        elif not user.is_active:
+            raise forms.ValidationError('Your account is not active!')
+        else:
+            self.user = user
+
+        return self.cleaned_data

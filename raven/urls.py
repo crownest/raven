@@ -19,7 +19,9 @@ from django.conf.urls import url
 from django.contrib import admin
 
 # Local Django
-from raven.views import LoginView, IndexView
+from raven.views import (
+    LandingView, LogoutView, RegisterView, IndexView, RegistrationRequestView
+)
 
 
 urlpatterns = [
@@ -27,6 +29,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Pages
-    url(r'^$', IndexView),
-    url(r'^login/$', LoginView.as_view(), name='login'),
+    url(r'^$', LandingView.as_view(), name='landing'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
+    url(r'^index/$', IndexView.as_view(), name='index'),
+    url(
+        r'^registration/requests/$',
+        RegistrationRequestView.as_view(), name='registration-request'
+    )
 ]
