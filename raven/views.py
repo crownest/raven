@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.views.generic import View, TemplateView, RedirectView
 
 
@@ -22,12 +23,11 @@ class DocumentationView(View):
 
 
 class LandingView(TemplateView):
-    template_name = "landing.html"
+    template_name = 'landing.html'
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             return redirect('index')
-
         return super(LandingView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -56,7 +56,15 @@ class LandingView(TemplateView):
 
 
 class LogoutView(RedirectView):
-    pass
+    permanent = False
+    query_string = True
+    pattern_name = 'landing'
+
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_authenticated():
+            auth_logout(self.request)
+
+        return super(LogoutView, self).get_redirect_url(*args, **kwargs)
 
 
 class RegisterView(TemplateView):
