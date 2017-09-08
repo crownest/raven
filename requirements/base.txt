@@ -11,3 +11,11 @@ mkdocs==0.16.3
 # click==6.7
 # livereload==2.5.1
 # tornado==4.5.2
+
+
+# Celery
+celery==4.1.0
+# amqp==2.2.1
+# billiard==3.5.0.3
+# kombu==4.1.0
+# vine==1.1.4
