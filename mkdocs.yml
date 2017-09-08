@@ -1,0 +1,5 @@
+site_name: Raven
+site_author: Crownest
+copyright: Crownest
+site_dir: docs_build
+use_directory_urls: false

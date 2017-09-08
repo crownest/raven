@@ -20,13 +20,18 @@ from django.contrib import admin
 
 # Local Django
 from raven.views import (
-    LandingView, LogoutView, RegisterView, IndexView, RegistrationRequestView
+    DocumentationView, LandingView, LogoutView,
+    RegisterView, IndexView, RegistrationRequestView
 )
 
 
 urlpatterns = [
     # Admin
     url(r'^admin/', admin.site.urls),
+
+    # Documentation
+    url(r'^docs/$', DocumentationView.as_view(), name='docs'),
+    url(r'^docs/(?P<path>.*)$', DocumentationView.as_view(), name='docs'),
 
     # Pages
     url(r'^$', LandingView.as_view(), name='landing'),
