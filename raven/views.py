@@ -1,14 +1,24 @@
 # Django
+from django.conf import settings
+from django.views.static import serve
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import View, TemplateView, RedirectView
 
 
 # Local Django
 from raven.forms import LoginForm
 from raven.variables import LOGIN_FORM_PREFIX
+
+
+class DocumentationView(View):
+
+    def get(self, request, path='index.html', **kwargs):
+        return serve(
+            request, path, document_root=settings.DOCUMENTATION_ROOT, **kwargs
+        )
 
 
 class LandingView(TemplateView):

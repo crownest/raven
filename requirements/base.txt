@@ -1,2 +1,13 @@
 # Django
 Django==1.11.4
+
+
+# Documentation
+mkdocs==0.16.3
+# Jinja2==2.9.6
+# Markdown==2.6.9
+# MarkupSafe==1.0
+# PyYAML==3.12
+# click==6.7
+# livereload==2.5.1
+# tornado==4.5.2
