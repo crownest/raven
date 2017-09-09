@@ -1,5 +1,6 @@
 # Django
 from django.conf import settings
+from django.contrib import messages
 from django.views.static import serve
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -10,8 +11,8 @@ from django.views.generic import View, TemplateView, RedirectView
 
 
 # Local Django
-from raven.forms import LoginForm
-from raven.variables import LOGIN_FORM_PREFIX
+from raven.forms import LoginForm, RegisterForm
+from raven.variables import LOGIN_FORM_PREFIX, REGISTER_FORM_PREFIX
 
 
 class DocumentationView(View):
@@ -75,6 +76,39 @@ class RegisterView(TemplateView):
             return redirect('index')
 
         return super(RegisterView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(RegisterView, self).get_context_data(**kwargs)
+
+        context.update({
+            'title': 'Register',
+            'register_form': RegisterForm(prefix=REGISTER_FORM_PREFIX)
+        })
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data()
+
+        if REGISTER_FORM_PREFIX in request.POST:
+            registration_request = None
+            register_form = RegisterForm(request.POST, prefix=REGISTER_FORM_PREFIX)
+
+            if register_form.is_valid():
+                registration_request = register_form.save()
+
+            if registration_request:
+                messages.success(
+                    request, 'Your registration request has been received.'
+                )
+            else:
+                messages.error(
+                    request, 'Your registration request was not received. Try again!'
+                )
+
+            context.update({'register_form': register_form})
+
+        return super(RegisterView, self).render_to_response(context)
 
 
 class IndexView(TemplateView):

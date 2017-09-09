@@ -1,63 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="static/css/main.css">
-</head>
-<body class="account-page">
+{% extends "base.html" %}
+
+{% load i18n staticfiles %}
+{% load raven_extras %}
+
+
+{% block title %}{{ block.super }} | {{  title }}{% endblock %}
+
+{% block body-class %}class="account-page"{% endblock %}
+
+
+{% block content %}
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 account-page__left">
         <div class="account-page__text">
-          <figure class="logo"><img src="static/img/logo.png"></figure>
+          <figure class="logo"><img src="{% static 'img/logo.png' %}"></figure>
           <h1>RAVEN</h1>
           <p>This website is designed for getting appointment from your consultant when they're available.</p>
         </div>
       </div>
       
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 account-page__right">
-        <form class="register account-page__form">
+        <form class="register account-page__form" action="{% url 'register' %}" method="post">
+          {% csrf_token %}
           <div class="form-group">  
-            <input type="email" class="form-control" placeholder="Enter email">
+            {% add_attrs register_form.email class="form-control" %} {{ register_form.email.errors }}
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="First Name">
+            {% add_attrs register_form.first_name class="form-control" %} {{ register_form.first_name.errors }}
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Last Name">
+            {% add_attrs register_form.last_name class="form-control" %} {{ register_form.last_name.errors }}
           </div>
-          <div class="form-group">
-            <div class="select-box">
-              <select class="form-control">
-                <option hidden>Collage</option>
-                <option id="select-box-item">Seçenek 1</option>
-                <option id="select-box-item">Seçenek 2</option>
-                <option id="select-box-item">Seçenek 3</option>
-              </select>
-            </div>
-          </div>
+          {% comment %}
           <div class="form-group">
             <div class="select-box">
-              <select class="form-control">
-                <option hidden>Deparment</option>
-                <option id="select-box-item">Seçenek 1</option>
-                <option id="select-box-item">Seçenek 2</option>
-                <option id="select-box-item">Seçenek 3</option>
-              </select>
+              {% add_attrs register_form.college class="form-control" %} {{ register_form.college.errors }}
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+          {% endcomment %}
+          <div class="form-group">
+            <div class="select-box">
+              {% add_attrs register_form.department class="form-control" %} {{ register_form.department.errors }}
+            </div>
+          </div>
+          <button type="submit" name="{{ register_form.prefix }}" class="btn btn-primary">CREATE ACCOUNT</button>
           <div class="link">
-            <a href="login.html">Sign In</a>
+            <a href="{% url 'landing' %}">Sign In</a>
           </div>
         </form>
       </div>
     </div>
   </div>
+{% endblock %}
+
+
+{% block script %}
+  {{ block.super }}
 
   <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="static/js/main.js"></script>
-</body>
-</html>
+
+  {% if register_form.errors %}
+    <script type="text/javascript">
+      alertify.maxLogItems(500)
+      {% for error in register_form.non_field_errors %}
+        {% if error.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          .error("{{error}}"){% if forloop.last %};{% endif %}
+        {% elif error.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          .success("{{error}}"){% if forloop.last %};{% endif %}
+        {% else %}
+          .log("{{error}}"){% if forloop.last %};{% endif %}
+        {% endif %}
+      {% endfor %}
+    </script>
+  {% endif %}
+{% endblock %}
