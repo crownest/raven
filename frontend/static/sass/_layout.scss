@@ -613,13 +613,12 @@ html,body {
 =            PASSWORD EDIT PAGE            =
 ==========================================*/
 
-
 .password-edit-content {
   background-color: #f4f4f4;
   height: calc(100% - 135px);
 
   .password-edit-box {
-    margin-top:50px;
+    margin-top: 50px;
     width: 75%;
     height: 402px;
     background-color: $text-color;
@@ -703,6 +702,7 @@ html,body {
     }
   }
 }
+
 
 /*============================================
 =            APPOINTMENT ADD PAGE            =
@@ -841,4 +841,121 @@ html,body {
       margin: 100px 0px 0px 70px;
     }
   }
+}
+
+
+/*====================================
+=            MESSAGE PAGE            =
+====================================*/
+
+.alert {
+  background-color: #fbfbfb;
+  width: 100%;
+  min-height: 100px;
+  margin-top: 30px;
+  border:0;
+
+  .info-message{
+    width: calc( 100% - 110px );
+    margin-top: -50px; 
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+    color: #4a4a4a;
+    font-family: $df; 
+  }
+
+  .image-info {
+    height:100px;
+    width: 100px;
+    background-color:  #7200da;
+
+    img{
+      width: 65px;
+      height: 65px;
+      background-color:  #7200da;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  .image-success {
+    height:100px;
+    width: 100px;
+    background-color: #75d701;
+
+    img{
+      width: 65px;
+      height: 65px;
+      background-color: #75d701;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  .image-warning {
+    height:100px;
+    width: 100px;
+    background-color: #fb684b;
+
+    img {
+      width: 65px;
+      height: 65px;
+      background-color: #fb684b;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+
+  .image-danger {
+    height:100px;
+    width: 100px;
+    background-color: #d0011b;
+
+    img {
+      background-color: #d0011b;
+      min-height: 65px;
+      width: 65px;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+}
+
+.info-box {
+  width: 70%;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-right-color: #7200da;
+  border-radius: 5px;
+  margin-left: 20%;
+}
+
+.success-box {
+  width: 70%;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-right-color: #75d701;
+  border-radius: 5px;
+  margin-left: 20%;
+}
+
+.warning-box {
+  width: 70%;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-right-color: #fb684b;
+  border-radius: 5px;
+  margin-left: 20%;  
+}
+
+.danger-box {
+  width: 70%;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-right-color: #d0011b;
+  border-radius: 5px;
+  margin-left: 20%; 
 }
