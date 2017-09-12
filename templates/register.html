@@ -8,7 +8,6 @@
 
 {% block body-class %}class="account-page"{% endblock %}
 
-
 {% block content %}
   <div class="container">
     <div class="row">
@@ -19,11 +18,11 @@
           <p>This website is designed for getting appointment from your consultant when they're available.</p>
         </div>
       </div>
-      
+
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 account-page__right">
         <form class="register account-page__form" action="{% url 'register' %}" method="post">
           {% csrf_token %}
-          <div class="form-group">  
+          <div class="form-group">
             {% add_attrs register_form.email class="form-control" %} {{ register_form.email.errors }}
           </div>
           <div class="form-group">
@@ -54,12 +53,11 @@
   </div>
 {% endblock %}
 
-
 {% block script %}
   {{ block.super }}
 
-  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="static/js/main.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
   {% if register_form.errors %}
     <script type="text/javascript">
