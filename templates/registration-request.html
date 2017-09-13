@@ -51,32 +51,33 @@
           </ul>
         </div>
         <div class="table_body scroll-pane">
-          {% for request in requests %}
-          {% if request.status == 0 %}
+          {% for register in registers %}
+          {% if register.status == 0 %}
             <div class="row">
-              <form class="registration-page registration_page__form" action="{% url 'registration-request' %}" method="get">
+              <form class="registration-page registration_page__form" action="{% url 'registration-request' %}" method="post">
+                {% csrf_token %}
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
                    <div class="request">
                      <div class="box">
                        <label class="custom-control custom-checkbox">
-                         <input type="checkbox" name="request" id="request{{ forloop.counter }}" value = "{{ request.id }}">
+                         <input type="checkbox" name="register" id="register{{ forloop.counter }}" value = "{{ register.id }}">
                          <span class="custom-control-indicator"></span>
                        </label>
                        <tr>
-                         <span>{{ request.first_name }}</span>
-                         <span>{{ request.last_name }}</span>
+                         <span>{{ register.first_name }}</span>
+                         <span>{{ register.last_name }}</span>
                        </tr>
                      </div>
                    </div>
                  </div>
                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
-                    <span>{{ request.create_date }}</span>
+                    <span>{{ register.create_date }}</span>
                  </div>
                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
-                  <span>{{ request.email }}</span>
+                  <span>{{ register.email }}</span>
                  </div>
                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
-                  <span>{{ request.department.name }}</span>
+                  <span>{{ register.department.name }}</span>
                  </div>
              </div>
             {% endif %}

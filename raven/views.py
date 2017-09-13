@@ -133,13 +133,34 @@ class RegistrationRequestView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(RegistrationRequestView, self).get_context_data(**kwargs)
 
-        requests = RegistrationRequest.objects.filter(
+        registers = RegistrationRequest.objects.filter(
             department__in=self.request.user.departments.all()
         )
 
         context.update({
             'title': 'Registration Request',
-            'requests': requests
+            'registers': registers
         })
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        registers = RegistrationRequest.objects.filter(
+            department__in=self.request.user.departments.all()
+        )
+        requests = request.POST.getlist('register')
+
+        if registers is not None:
+
+            for register in registers:
+
+                for selected_values in requests:
+
+                    if "reject" in request.POST:
+
+                        if register.id == int(selected_values):
+                            register.status = 1
+                            register.delete()
+
+        return super(RegistrationRequestView, self).render_to_response(context)
