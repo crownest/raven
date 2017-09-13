@@ -134,7 +134,6 @@ html,body {
 /*===================================
 =            HEADER                 =
 ===================================*/
-
 .header-left {
   display: inline-block;
   padding: 19px;
@@ -173,7 +172,6 @@ html,body {
         padding-left: 0px;
       }
     }
-
     a {
       text-decoration: none;
       color: #000;
@@ -924,7 +922,7 @@ html,body {
   }
 }
 
-.info-box {
+.info-message-box {
   width: 70%;
   border-right-style: solid;
   border-right-width: 5px;
@@ -933,7 +931,7 @@ html,body {
   margin-left: 20%;
 }
 
-.success-box {
+.success-message-box {
   width: 70%;
   border-right-style: solid;
   border-right-width: 5px;
@@ -942,7 +940,7 @@ html,body {
   margin-left: 20%;
 }
 
-.warning-box {
+.warning-message-box {
   width: 70%;
   border-right-style: solid;
   border-right-width: 5px;
@@ -951,7 +949,7 @@ html,body {
   margin-left: 20%;  
 }
 
-.danger-box {
+.danger-message-box {
   width: 70%;
   border-right-style: solid;
   border-right-width: 5px;
