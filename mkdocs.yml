@@ -3,3 +3,8 @@ site_author: Crownest
 copyright: Crownest
 site_dir: docs_build
 use_directory_urls: false
+
+pages:
+  - Home: index.md
+  - Backend:
+    - Development: backend/development.md
