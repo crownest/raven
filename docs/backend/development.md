@@ -53,7 +53,7 @@ pip install -r requirements/dev.txt
 
 **Create database**
 ```bash
-python manage.py migrate
+./manage.py migrate
 ```
 
 **Create superuser**

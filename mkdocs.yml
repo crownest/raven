@@ -8,3 +8,5 @@ pages:
   - Home: index.md
   - Backend:
     - Development: backend/development.md
+  - Frontend:
+    - Development: frontend/development.md
