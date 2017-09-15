@@ -146,9 +146,7 @@ class RegistrationRequestView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data()
-        registers = RegistrationRequest.objects.filter(
-            department__in=self.request.user.departments.all()
-        )
+        registers = context['registers']
         requests = request.POST.getlist('register')
 
         if registers is not None:
