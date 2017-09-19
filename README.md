@@ -5,7 +5,7 @@
 
 
 ## Build Docs
-```
+```bash
 mkdocs build
 mkdocs build --clean
 ```

@@ -6,7 +6,7 @@
 **Installation of Node.js**
 ```bash
 apt-get update
-apt-get install node.js
+apt-get install nodejs
 ```
 
 **You must install npm, which is the Node.js package manager**
@@ -17,7 +17,7 @@ apt-get install npm
 **Installation of Ruby**
 ```bash
 apt-get update
-apt-get install rubby-full
+apt-get install ruby-full
 ```
 
 **Installation of Sass**
@@ -44,7 +44,7 @@ mkdir Raven
 cd Raven
 ```
 
-**Get source Code**
+**Get source code**
 ```bash
 git clone https://github.com/crownest/raven.git source (Use HTTPS)
 git clone git@github.com:crownest/raven.git source     (Use SSH)
