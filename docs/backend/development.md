@@ -34,7 +34,7 @@ virtualenv -p python3 env
 source env/bin/activate
 ```
 
-**Get source Code**
+**Get source code**
 ```bash
 git clone https://github.com/crownest/raven.git source (Use HTTPS)
 git clone git@github.com:crownest/raven.git source     (Use SSH)
