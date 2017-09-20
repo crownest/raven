@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+          <div class="header-left">
+            <figure><img src="static/img/user.jpg"></figure>
+            <ul class="header-left-menu">
+              <li><a class="active" href="request.html">Requests</a></li>
+              <li><a class="active" href="#">States</a></li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+          <div class="header-right">
+            <ul class="header-right-menu">
+              <li><a class="left" href="settings.html"><i class="material-icons">settings</i>Settings</a></li>
+              <li><a class="right" href="login.html"><i class="material-icons">exit_to_app</i>Exit</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid blank-days">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="blank-days-item date-table date-table-opacity">
+          <h4>Date</h4>
+          <div class="scroll-pane">
+            <ul>
+              <li><a href="#">03 Oct 2017</a></li>
+              <li><a href="#">26 Jun 2017</a></li>
+              <li><a href="#">02 Sep 2017</a></li>
+              <li><a href="#">21 Nov 2017</a></li>
+              <li><a href="#">27 May 2017</a></li>
+              <li><a href="#">05 Aug 2017</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="blank-days-item hour-table-opacity">
+          <h4>Time</h4>
+          <div class="time-item">
+            <p>Start Time</p>
+            <button class="blank-days-select" data-toggle="modal" data-target="#myModal">
+              SELECT
+            </button>
+
+            <p>Finish Time</p>
+            <button class="blank-days-select" data-toggle="modal" data-target="#myModal">
+              SELECT
+            </button>
+
+            <div class="selected-time">
+              <p class="selected">Selected</p>
+              
+              <div class="selected-time-item">
+                <p class="time">Start Time : <span>10:29</span></p>
+                <p class="time">Finish Time : <span>11:30</span></p>
+              </div>
+            </div>
+
+            <button class="blank-days-button">
+              ADD BLANK DAYS
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="myModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <p>13:27</p>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input class="hour-item" type="text" placeholder="Hour">
+              <input class="hour-item" type="text" placeholder="Second">
+            </div>
+          </div>
+          <div class="modal-footer" >
+            <button class="confirm-button" type="button" data-dismiss="modal">CONFIRM</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+  <script src="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="static/js/main.js"></script>
+</body>
+</html>
