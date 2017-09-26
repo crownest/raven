@@ -1,7 +1,7 @@
 # Welcome to Raven
 
 
-[Docs](docs/)
+[Docs](docs/index.md)
 
 
 ## Build Docs

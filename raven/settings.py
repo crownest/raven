@@ -138,3 +138,8 @@ STATICFILES_DIRS = (
 # Documentation
 
 DOCUMENTATION_ROOT = 'docs_build'
+
+
+# Celery
+
+CELERY_BROKER_URL = 'amqp://guest@localhost:5672/raven_vhost'
