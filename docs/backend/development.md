@@ -46,6 +46,13 @@ cd source
 git checkout develop
 ```
 
+**Create required file**
+```bash
+touch raven/secrets.py
+```
+
+Note: Please ask secret credentials from admin.
+
 **Install requirements**
 ```bash
 pip install -r requirements/dev.txt

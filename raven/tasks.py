@@ -1,11 +1,11 @@
-# Third-Party
-from celery import shared_task
-
 # Django
 from django.core.mail import send_mail
 
+# Local Django
+from raven import celery_app
 
-@shared_task
+
+@celery_app.task
 def send_mail_task(context, verb):
     """
     Context Format
