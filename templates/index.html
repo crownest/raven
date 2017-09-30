@@ -1,30 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
-  <link rel="stylesheet" type="text/css" href="static/css/main.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% load i18n staticfiles %}
+{% load raven_extras %}
+
+
+{% block title %}{{  title }} | {{ block.super }}{% endblock %}
+
+{% block style %}
+  {{ block.super }}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.mCustomScrollbar.css' %}">
+{% endblock %}
+
+{% block content %}
   <header>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 index-page__left">
           <div class="header-left">
-            <figure><img src="static/img/user.jpg"></figure>
+            <figure class="index"><img src="{% static 'img/user.jpg' %}"></figure>
             <ul class="header-left-menu">
-              <li><a class="active" href="index.html">Home Page</a></li>
-              <li><a class="active" href="#">Appointments</a></li>
+              <li><a class="active" href="#">Home Page</a></li>
+              <li><a href="#">Appointments</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 index-page__right">
           <div class="header-right">
             <ul class="header-right-menu">
               <li>
-                <a href="settings.html" class="left"><i class="material-icons">settings</i>Settings</a>
+                <a href="#" class="left"><i class="material-icons">settings</i>Settings</a>
               </li>
               <li>
                 <a href="{% url 'logout' %}" class="right"><i class="material-icons">exit_to_app</i>Exit</a>
@@ -38,55 +43,40 @@
 
   <div class="container-fluid index-content">
     <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-page__right">
         <div class="index-content-item department-table">
           <h4>Department</h4>
           <div class="scroll-pane">
-            <ul>
-              <li><a href="#">Computer Engineering</a></li>
-              <li><a href="#">Electric and Electronics Engineering</a></li>
-              <li><a href="#">Business</a></li>
-            </ul>
+            <form class="index-page index_page__form" action="{% url 'index' %}">
+            {% for department in departments %}
+              <ul>
+                <li><a href="">{{ department.name }}</a></li>
+              </ul>
+            {% endfor %}
           </div>
         </div>
       </div>
-
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-page__right">
         <div class="index-content-item teacher-table">
           <h4>Teacher</h4>
           <div class="scroll-pane">
-            <ul>
-              <li><a href="#">Cora Manning</a></li>
-              <li><a href="#">Theodore Moss</a></li>
-              <li><a href="#">Elijah Williams</a></li>
-              <li><a href="#">Antonio Ingram</a></li>
-              <li><a href="#">Rosie Wells</a></li>
-              <li><a href="#">Rosalie Kim</a></li>
-              <li><a href="#">Hallie Hart</a></li>
-              <li><a href="#">Dale Weber</a></li>
-              <li><a href="#">Cora Manning</a></li>
-              <li><a href="#">Theodore Moss</a></li>
-              <li><a href="#">Elijah Williams</a></li>
-              <li><a href="#">Antonio Ingram</a></li>
-              <li><a href="#">Rosie Wells</a></li>
-              <li><a href="#">Rosalie Kim</a></li>
-              <li><a href="#">Hallie Hart</a></li>
-              <li><a href="#">Dale Weber</a></li>
-              <li><a href="#">Elijah Williams</a></li>
-              <li><a href="#">Antonio Ingram</a></li>
-              <li><a href="#">Rosie Wells</a></li>
-              <li><a href="#">Rosalie Kim</a></li>
-              <li><a href="#">Hallie Hart</a></li>
-              <li><a href="#">Dale Weber</a></li>
-            </ul>
+            <form class="index-page" action="{% url 'index' %}">
+              {% for teacher in teachers %}
+                <ul>
+                  <li><a href="#">{{ teacher.get_full_name }}</a></li>
+                </ul>
+              {% endfor %}
           </div>
         </div>
       </div>
     </div>
   </div>
+{% endblock %}
 
-  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
-  <script src="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script type="text/javascript" src="static/js/main.js"></script>
-</body>
-</html>
+{% block script %}
+  {{ block.super }}
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}
