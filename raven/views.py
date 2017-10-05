@@ -13,7 +13,7 @@ from django.views.generic import View, TemplateView, RedirectView
 # Local Django
 from raven.forms import LoginForm, RegisterForm
 from raven.variables import LOGIN_FORM_PREFIX, REGISTER_FORM_PREFIX
-
+from departments.models import RegistrationRequest
 
 class DocumentationView(View):
 
@@ -128,4 +128,37 @@ class RegistrationRequestView(TemplateView):
         if not request.user.is_authenticated():
             return redirect('landing')
 
-        return super(RegisterView, self).dispatch(request, *args, **kwargs)
+        return super(RegistrationRequestView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(RegistrationRequestView, self).get_context_data(**kwargs)
+
+        registers = RegistrationRequest.objects.filter(
+            department__in=self.request.user.departments.all()
+        )
+
+        context.update({
+            'title': 'Registration Request',
+            'registers': registers
+        })
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        registers = context['registers']
+        requests = request.POST.getlist('register')
+
+        if registers is not None:
+
+            for register in registers:
+
+                for selected_values in requests:
+
+                    if "reject" in request.POST:
+
+                        if register.id == int(selected_values):
+                            register.status = 1
+                            register.delete()
+
+        return super(RegistrationRequestView, self).render_to_response(context)

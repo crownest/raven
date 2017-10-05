@@ -1,303 +1,102 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"/>
-  <link rel="stylesheet" type="text/css" href="static/css/main.css">
-</head>
-<body>
-  <header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
-          <div class="header-left">
-            <figure><img src="static/img/user.jpg"></figure>
-            <ul class="header-left-menu">
-              <li><a class="active" href="request.html">Requests</a></li>
-              <li><a class="active" href="#">States</a></li>
-            </ul>
-          </div>
-        </div>
-      
-        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-          <div class="header-right">
-            <ul class="header-right-menu">
-              <li><a class="left" href="settings.html"><i class="material-icons">settings</i>Settings</a></li>
-              <li><a class="right" href="login.html"><i class="material-icons">exit_to_app</i>Exit</a></li>
-            </ul>
-          </div>
+{% extends "base.html" %}
+
+{% load i18n staticfiles %}
+{% load raven_extras %}
+
+
+{% block title %}{{ block.super }} | {{  title }}{% endblock %}
+
+{% block style %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.css' %}"/>
+{% endblock %}
+
+{% block body-class %}class="registration-page"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 registration-page__left">
+        <div class="header-left">
+          <figure class="registration"><img src="{% static 'img/user.jpg' %}"></figure>
+          <ul class="header-left-menu">
+            <li><a class="active" href="request.html">Requests</a></li>
+            <li><a class="active" href="#">States</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </header>
 
-  <div class="container-fluid request-content">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="table">
-          <div class="table_header">
-            <ul>
-              <li>Öğrenci</li>
-              <li>Tarih</li>
-              <li>E-mail</li>
-              <li>Randevu Sebebi</li>
-            </ul>
-          </div>
-          <div class="table_body scroll-pane">
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="1"class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Angel Hayes</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>30 Jul 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>marie@angele.biz</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>George Castro</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">	
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="2" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Noah Lamb</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>15 May 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>strosin@lehner.io</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Mark Bush</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">	
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="3" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Alvin Drake</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>01 Sep 2017 </span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>carmen@bethel.org</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Elmer Gibson</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="4" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Violet Wilson</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>29 Jul 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>patrox@yahoo.com</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Verna Huff</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">	
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="5" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Katharine Fuller</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>01 Jul 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>yundt@marquise.biz</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Peter Lucas</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="6" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Adele Santos</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>17 May 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>bergstrom@yahoo.com</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Cordelia Riley</span>
-              </div>	
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="7" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>	
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="8" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>	
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="9" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="10" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="11" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="box">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" id="12" class="custom-control-input">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                  <span>Melvin Carroll</span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>21 Dec 2017</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>quitzon.herta.ca</span>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <span>Hunter Austin</span>
-              </div>
-            </div>
-          </div>
-          <div class="table_footer">
-            <button class="reject">Reject</button>
-            <button class="confirm">Confirm</button>
-          </div>
+      <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 registration-page__right">
+        <div class="header-right">
+          <ul class="header-right-menu">
+            <li><a class="left" href="settings.html"><i class="material-icons">settings</i>Settings</a></li>
+            <li><a class="right" href="login.html"><i class="material-icons">exit_to_app</i>Exit</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
-  <script src="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script type="text/javascript" src="static/js/main.js"></script>
-</body>
-</html>
+  <div class="container-fluid request-content">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 registration-page__right">
+      <div class="table">
+        <div class="table_header">
+          <ul>
+            <li>Student</li>
+            <li>Date</li>
+            <li>Email</li>
+            <li>Department</li>
+          </ul>
+        </div>
+        <div class="table_body scroll-pane">
+          {% for register in registers %}
+          {% if register.status == 0 %}
+            <div class="row">
+              <form class="registration-page registration_page__form" action="{% url 'registration-request' %}" method="post">
+                {% csrf_token %}
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
+                   <div class="request">
+                     <div class="box">
+                       <label class="custom-control custom-checkbox">
+                         <input type="checkbox" name="register" id="register{{ forloop.counter }}" value = "{{ register.id }}">
+                         <span class="custom-control-indicator"></span>
+                       </label>
+                       <tr>
+                         <span>{{ register.first_name }}</span>
+                         <span>{{ register.last_name }}</span>
+                       </tr>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
+                    <span>{{ register.create_date }}</span>
+                 </div>
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
+                  <span>{{ register.email }}</span>
+                 </div>
+                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 registration-page__right">
+                  <span>{{ register.department.name }}</span>
+                 </div>
+             </div>
+            {% endif %}
+           {% endfor %}
+         </div>
+          <div class="table_footer">
+            <button class="reject" name="reject">Reject</button>
+            <button class="confirm" name="confirm">Confirm</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  {{ block.super }}
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}
