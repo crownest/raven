@@ -10,7 +10,7 @@ from users.models import User, SpareTime
 class UserAdmin(_UserAdmin):
 
     fieldsets = (
-        ('Base Informations', {'fields': ('email', 'password')}),
+        ('Base Informations', {'fields': ('user_type', 'email', 'password')}),
         ('Personal informations', {
             'fields': (
                 'first_name', 'last_name',

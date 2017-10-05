@@ -13,6 +13,9 @@ from django.views.generic import View, TemplateView, RedirectView
 # Local Django
 from raven.forms import LoginForm, RegisterForm
 from raven.variables import LOGIN_FORM_PREFIX, REGISTER_FORM_PREFIX
+from departments.models import Department
+from users.models import User
+from users.variables import USER_TYPES, TEACHER
 
 
 class DocumentationView(View):
@@ -29,6 +32,7 @@ class LandingView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
             return redirect('index')
+
         return super(LandingView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -119,6 +123,24 @@ class IndexView(TemplateView):
             return redirect('landing')
 
         return super(IndexView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        departments = Department.objects.filter(
+            name__in=self.request.user.departments.all().values("name"),
+            college__name=self.request.user.college
+        )
+        teachers = User.objects.filter(
+            user_type=TEACHER, departments=self.request.user.departments.all()
+        ).order_by('first_name')
+
+        context.update({
+            'title': 'Index',
+            'departments': departments,
+            'teachers': teachers
+        })
+
+        return context
 
 
 class RegistrationRequestView(TemplateView):
